@@ -637,6 +637,7 @@
     </div>
     <p>&copy; 2024 PRAJIT MONDAL . All rights reserved.</p>
   </footer>
+  <div id="cursor-3d"></div>
   <script src="https://cdn.jsdelivr.net/npm/tagcloud@2.2.0/dist/TagCloud.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.153.0/build/three.min.js"></script>
   <script>
@@ -709,6 +710,40 @@
       onResize();
     });
   </script>
+  <script>
+const cursor3d = document.getElementById('cursor-3d');
+let cursorTimeout;
+
+function showCursor3D(x, y) {
+  cursor3d.style.left = x + 'px';
+  cursor3d.style.top = y + 'px';
+  cursor3d.style.opacity = '1';
+  cursor3d.style.transform = 'translate(-50%, -50%) scale(1.2)';
+  clearTimeout(cursorTimeout);
+  cursorTimeout = setTimeout(() => {
+    cursor3d.style.opacity = '0';
+    cursor3d.style.transform = 'translate(-50%, -50%) scale(0.7)';
+  }, 350);
+}
+
+// Mouse
+window.addEventListener('pointerdown', e => {
+  showCursor3D(e.clientX, e.clientY);
+});
+window.addEventListener('pointermove', e => {
+  if (e.buttons) showCursor3D(e.clientX, e.clientY);
+});
+
+// Touch
+window.addEventListener('touchstart', e => {
+  const t = e.touches[0];
+  showCursor3D(t.clientX, t.clientY);
+});
+window.addEventListener('touchmove', e => {
+  const t = e.touches[0];
+  showCursor3D(t.clientX, t.clientY);
+});
+</script>
   <script src="script.js"></script>
 </body>
 </html>
