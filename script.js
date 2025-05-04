@@ -366,3 +366,57 @@ filterButtons.forEach(btn => {
     });
   });
 });
+
+// 3D tilt effect for contact form
+const contactForm = document.querySelector('.contact-form.rgb-shadow-3d');
+if (contactForm) {
+  contactForm.addEventListener('mousemove', (e) => {
+    const rect = contactForm.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = ((y - centerY) / centerY) * 8;
+    const rotateY = ((x - centerX) / centerX) * 8;
+    contactForm.style.transform = `rotateX(${-rotateX}deg) rotateY(${rotateY}deg) scale(1.03)`;
+  });
+  contactForm.addEventListener('mouseleave', () => {
+    contactForm.style.transform = '';
+  });
+}
+
+// Contact section interactivity
+document.addEventListener('DOMContentLoaded', function() {
+  // Email click: open mail client
+  const emailLink = document.getElementById('contact-email');
+  if (emailLink) {
+    emailLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.location.href = 'mailto:prajitpsn@gmail.com';
+    });
+  }
+
+  // Phone click: open dialer on mobile, else show alert
+  const phoneLink = document.getElementById('contact-phone');
+  if (phoneLink) {
+    phoneLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      // Simple mobile detection
+      if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+        window.location.href = 'tel:+918777XXXX52';
+      } else {
+        alert('This feature is available on mobile devices.');
+      }
+    });
+  }
+
+  // Location click: open Google Maps
+  const locationLink = document.getElementById('contact-location');
+  if (locationLink) {
+    locationLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      // You can use a more precise address if you want
+      window.open('https://www.google.com/maps/place/Kolkata,+India', '_blank');
+    });
+  }
+});
