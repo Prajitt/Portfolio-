@@ -2144,3 +2144,20 @@
       border-radius: 24px !important;
     }
   }
+
+  #cursor-3d {
+    position: fixed;
+    top: 0; left: 0;
+    width: 60px;
+    height: 60px;
+    pointer-events: none;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #38cb0b 60%, #00aaff 100%, transparent 120%);
+    box-shadow: 0 8px 32px 0 rgba(0,255,255,0.25), 0 1.5px 8px 0 rgba(56,203,11,0.18);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
+    transition: opacity 0.25s, transform 0.18s cubic-bezier(.77,0,.18,1);
+    z-index: 99999;
+    will-change: transform, opacity;
+    mix-blend-mode: lighten;
+  }
