@@ -1289,3 +1289,78 @@
     font-weight: 700;
     letter-spacing: 1px;
   }
+
+  @media (max-width: 700px) {
+    /* Headings */
+    h1, .hero-text h1 {
+      font-size: 2.3rem;
+    }
+    h2, .about-headline {
+      font-size: 2rem;
+    }
+    .about-info-headline {
+      font-size: 1.7rem;
+    }
+    /* Paragraphs and info */
+    p, .hero-text p, .about-info, .about-info p {
+      font-size: 1.25rem;
+      line-height: 1.9;
+    }
+    /* Skills, experience, project cards */
+    .skills-list li,
+    .experience-item,
+    .project-card {
+      font-size: 1.1rem;
+    }
+    /* Buttons and form */
+    button, input, textarea {
+      font-size: 1.1rem;
+    }
+    /* Images in hero and about */
+    .rgb-border img,
+    .hero-image img {
+      width: 220px;
+      height: 220px;
+      border-radius: 12px;
+    }
+    .about-image-3d img {
+      width: 180px;
+      height: 180px;
+      border-radius: 12px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    h1, .hero-text h1 {
+      font-size: 1.5rem;
+    }
+    h2, .about-headline {
+      font-size: 1.3rem;
+    }
+    .about-info-headline {
+      font-size: 1.2rem;
+    }
+    p, .hero-text p, .about-info, .about-info p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .skills-list li,
+    .experience-item,
+    .project-card {
+      font-size: 1rem;
+    }
+    button, input, textarea {
+      font-size: 1rem;
+    }
+    .rgb-border img,
+    .hero-image img {
+      width: 140px;
+      height: 140px;
+      border-radius: 8px;
+    }
+    .about-image-3d img {
+      width: 110px;
+      height: 110px;
+      border-radius: 8px;
+    }
+  }
