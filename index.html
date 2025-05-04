@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Portfolio</title>
+  <title>PRAJIT</title>
   <link rel="stylesheet" href="style1.css"/>
 </head>
 <body>
@@ -29,17 +29,40 @@
       </button>
     </nav>
     <section class="hero">
-      <div class="hero-3d">
-        <div id="three-cube-container" style="width:260px; height:260px; margin:0 auto;"></div>
+      <div class="hero-3d-center">
+        <div id="three-cube-container"></div>
       </div>
-      <h1>Hi, I'm <span class="rgb-animate">PRAJIT MONDAL</span></h1>
-      <p>Creative Developer | UI/UX Enthusiast</p>
+      <div class="hero-flex">
+        <div class="hero-text">
+          <h1>
+            Hi, I'm <span class="rgb-animate">PRAJIT MONDAL</span>
+          </h1>
+          <p>Creative Developer | UI/UX Enthusiast</p>
+        </div>
+        <div class="hero-image-container">
+          <div class="rgb-border">
+            <img src="me4.jpg" alt="Prajit Mondal" />
+          </div>
+        </div>
+      </div>
     </section>
   </header>
   <main>
-    <section id="about" class="section-glow">
-      <h2>About Me</h2>
-      <p>Write a short bio about yourself here.</p>
+    <section id="about" class="section-glow about-section">
+      <h2 class="about-headline">About Me</h2>
+      <div class="about-content">
+        <div class="about-image-3d">
+          <img src="me5.jpg" alt="Prajit Mondal" />
+        </div>
+        <div class="about-info">
+          <div class="about-info-headline">Who Am I ?</div>
+          <p class="scramble-text" id="about-info-text">
+            I am a <b>Full Stack Web Developer</b> and <b>AI/ML expert</b> with a strong foundation in robotics and bot development.
+            <br><br>
+            Currently pursuing <b>Mechanical Engineering</b> at <b class="uni-name">Jadavpur University</b>, I blend software proficiency with hands-on engineering skills to build innovative tech solutions that bridge the gap between hardware and software.
+          </p>
+        </div>
+      </div>
     </section>
     <section id="skills" class="section-glow">
       <h2>Skills</h2>
@@ -115,7 +138,7 @@
         </svg>
       </a>
       <!-- LinkedIn -->
-      <a href="https://www.linkedin.com/in/prajit-mondal-b9546a320?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn">
+      <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
           <circle cx="12" cy="12" r="10" stroke="#0077B5" stroke-width="2" fill="white"/>
           <rect x="7" y="10" width="2" height="7" fill="#0077B5"/>
@@ -126,7 +149,7 @@
         </svg>
       </a>
       <!-- GitHub -->
-      <a href="https://github.com/Prajitt" target="_blank" aria-label="GitHub">
+      <a href="https://github.com/" target="_blank" aria-label="GitHub">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
           <circle cx="12" cy="12" r="10" stroke="#181717" stroke-width="2" fill="white"/>
           <path d="M9 17c-2 0-2-1-2-1m6 1v-2.5c0-.5-.2-.8-.5-1 .6-.1 1.5-.3 1.5-1.5 0-.3-.1-.5-.3-.7.1-.2.1-.6 0-.8 0 0-.2-.1-.7.3-.2-.1-.5-.2-.8-.2s-.6.1-.8.2c-.5-.4-.7-.3-.7-.3-.1.2-.1.6 0 .8-.2.2-.3.4-.3.7 0 1.2.9 1.4 1.5 1.5-.3.2-.5.5-.5 1V17" stroke="#181717" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
