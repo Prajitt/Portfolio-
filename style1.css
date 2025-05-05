@@ -1361,25 +1361,43 @@
   }
 
   .about-info {
-    flex: 2;
+    flex: 1 1 350px;
+    min-width: 260px;
+    max-width: 900px;
+    color: #fff;
+    margin-right: auto;
     text-align: right;
-    font-size: 1.25rem;
+    font-size: 1.05rem;
     line-height: 1.8;
-    color: var(--text);
     font-weight: 500;
-    max-width: 600px;
     word-break: break-word;
     background: rgba(255,255,255,0.03);
-    padding: 2rem 2.5rem;
+    padding: 1.2rem 1.2rem;
     border-radius: 1.2rem;
     box-shadow: 0 2px 16px rgba(0,0,0,0.04);
     margin-left: auto;
+    margin-right: 0;
   }
 
-  .about-info b {
+  .about-info .about-highlight {
+    display: block;
+    font-size: 1.08em;
     color: var(--accent);
     font-weight: 700;
-    letter-spacing: 0.5px;
+    margin-bottom: 0.1em;
+  }
+
+  .about-info .about-sub {
+    display: block;
+    font-size: 1em;
+    color: var(--text);
+    margin-bottom: 0.3em;
+    font-weight: 500;
+  }
+
+  .about-info b, .about-info .uni-name {
+    color: var(--accent);
+    font-weight: 700;
   }
 
   .about-info-headline {
@@ -1394,10 +1412,15 @@
   /* Responsive: Center text and reduce padding on mobile */
   @media (max-width: 900px) {
     .about-info {
-      text-align: center;
-      font-size: 1.1rem;
-      padding: 1.2rem 1rem;
-      margin-left: 0;
+      padding: 0.7rem 0.7rem;
+      font-size: 0.98rem;
+      max-width: 98vw;
+    }
+    .about-info .about-highlight {
+      font-size: 1em;
+    }
+    .about-info .about-sub {
+      font-size: 0.97em;
     }
   }
 
@@ -1910,16 +1933,16 @@
     display: flex;
     gap: 4rem;
     align-items: flex-start;
-    justify-content: flex-end; /* Push content to the right */
+    justify-content: center;
     flex-wrap: wrap;
   }
 
   .contact-info {
-    flex: 1.2;
+    flex: 1 1 350px;
     min-width: 260px;
     max-width: 420px;
     color: #fff;
-    margin-right: auto; /* Push info to the left */
+    margin-right: 0;
   }
 
   .contact-info h3 {
@@ -1975,15 +1998,16 @@
     box-shadow: 0 4px 24px 0 #38cb0b, 0 0 24px #ff0055;
   }
 
-  .contact-form {
-    flex: 1.5;
-    min-width: 300px;
-    max-width: 420px;
-    margin-right: 2vw; /* Push form to the right edge */
+  .contact-form.rgb-shadow-3d {
+    flex: 1.2 1 500px;
+    min-width: 320px;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0;
     background: rgba(255,255,255,0.05);
     border-radius: 1.2rem;
     box-shadow: 0 8px 32px 0 rgba(255,0,0,0.15), 0 1.5px 8px 0 rgba(0,255,0,0.10);
-    padding: 2.5rem 2rem 2rem 2rem;
+    padding: 2.5rem 4rem 2rem 4rem;
     display: flex;
     flex-direction: column;
     gap: 1.2rem;
@@ -2018,9 +2042,9 @@
   }
 
   .contact-form .rgb-btn {
-    margin: 1rem auto 0 auto;   /* Top margin, auto left/right for centering */
-    width: 80%;                 /* Optional: make the button a bit narrower */
-    display: block;             /* Ensure block-level for margin auto to work */
+    margin: 1rem auto 0 auto;
+    width: 80%;
+    display: block;
   }
 
   .contact-form.rgb-shadow-3d:hover {
@@ -2043,20 +2067,7 @@
       margin-right: 0;
     }
   }
-
   @media (max-width: 600px) {
-    .contact-section {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .contact-content {
-      flex-direction: column;
-      gap: 1.2rem;
-      align-items: center;
-      justify-content: center;
-    }
     .contact-form {
       width: 95vw;
       max-width: 100vw;
@@ -2064,14 +2075,6 @@
       margin: 0 0.5rem;
       padding: 1.2rem 0.7rem 1rem 0.7rem;
       border-radius: 0.7rem;
-    }
-    .contact-info {
-      width: 95vw;
-      max-width: 100vw;
-      margin: 0 0.5rem;
-    }
-    .contact-section .about-headline {
-      margin-bottom: 2rem;
     }
   }
 
