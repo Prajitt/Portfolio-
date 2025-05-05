@@ -143,7 +143,8 @@ let previousMousePosition = { x: 0, y: 0 };
 let targetRotation = { x: 0, y: 0 };
 let currentRotation = { x: 0, y: 0 };
 
-function toRadians(deg) { return deg * Math.PI / 180; }
+// Make it extremely sensitive
+const SENSITIVITY = 0.12; // Try 0.08–0.15 for ultra sensitivity
 
 function onPointerDown(e) {
   isDragging = true;
@@ -161,8 +162,8 @@ function onPointerMove(e) {
     x: clientX - previousMousePosition.x,
     y: clientY - previousMousePosition.y
   };
-  targetRotation.y += deltaMove.x * 0.01;
-  targetRotation.x += deltaMove.y * 0.01;
+  targetRotation.y += deltaMove.x * SENSITIVITY;
+  targetRotation.x += deltaMove.y * SENSITIVITY;
   previousMousePosition = { x: clientX, y: clientY };
 }
 
@@ -170,77 +171,25 @@ function onPointerUp() {
   isDragging = false;
 }
 
+// Attach events to the renderer's DOM element
 renderer.domElement.addEventListener('mousedown', onPointerDown);
 renderer.domElement.addEventListener('mousemove', onPointerMove);
 renderer.domElement.addEventListener('mouseup', onPointerUp);
 renderer.domElement.addEventListener('mouseleave', onPointerUp);
 
-renderer.domElement.addEventListener('touchstart', onPointerDown);
-renderer.domElement.addEventListener('touchmove', onPointerMove);
+renderer.domElement.addEventListener('touchstart', onPointerDown, { passive: false });
+renderer.domElement.addEventListener('touchmove', onPointerMove, { passive: false });
 renderer.domElement.addEventListener('touchend', onPointerUp);
 
-// Function to create a canvas texture with text
-function createTextTexture(text, bgColor = "#111", textColor = "#fff") {
-  const size = 256;
-  const canvas = document.createElement('canvas');
-  canvas.width = canvas.height = size;
-  const ctx = canvas.getContext('2d');
-  // Background
-  ctx.fillStyle = bgColor;
-  ctx.fillRect(0, 0, size, size);
-  // Text
-  ctx.font = "bold 32px Segoe UI, Arial";
-  ctx.fillStyle = textColor;
-  ctx.textAlign = "center";
-  ctx.textBaseline = "middle";
-  ctx.fillText(text, size / 2, size / 2);
-  return new THREE.CanvasTexture(canvas);
-}
-
-// Texts for each face
-const faceTexts = [
-  "PRAJIT",        // right
-  "MONDAL",        // left
-  "HTML & CSS",    // top
-  "JAVASCRIPT",    // bottom
-  "REACT",         // front
-  "THREE.JS"       // back
-];
-
-// Optionally, use different colors for each face
-const bgColors = [
-  "#ff0055", "#00ffae", "#00aaff", "#ffea00", "#17ea10", "#ff00cc"
-];
-const textColors = [
-  "#fff", "#111", "#fff", "#111", "#111", "#fff"
-];
-
-// Create materials with text textures
-const materials = faceTexts.map((text, i) =>
-  new THREE.MeshStandardMaterial({
-    map: createTextTexture(text, bgColors[i], textColors[i]),
-    roughness: 0.3,
-    metalness: 0.7
-  })
-);
-
-const geometry = new THREE.BoxGeometry(1.5, 1.5, 1.5);
-const cube = new THREE.Mesh(geometry, materials);
-scene.add(cube);
-
-// Animate RGB color and rotation
+// Animation loop: very fast interpolation, no idle rotation
 function animate() {
   requestAnimationFrame(animate);
 
-  // Smoothly interpolate to target rotation
-  currentRotation.x += (targetRotation.x - currentRotation.x) * 0.15;
-  currentRotation.y += (targetRotation.y - currentRotation.y) * 0.15;
+  // Interpolate quickly for instant response
+  currentRotation.x += (targetRotation.x - currentRotation.x) * 0.6;
+  currentRotation.y += (targetRotation.y - currentRotation.y) * 0.6;
 
-  // Constant slow rotation if not dragging
-  if (!isDragging) {
-    targetRotation.y += 0.005;
-    targetRotation.x += 0.002;
-  }
+  // No idle rotation! Cube only moves when user interacts
 
   cube.rotation.x = currentRotation.x;
   cube.rotation.y = currentRotation.y;
