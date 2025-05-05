@@ -16,6 +16,7 @@
     <nav>
       <div class="logo logo-animate">PRAJIT MONDAL</div>
       <ul id="nav-links">
+        <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
@@ -29,7 +30,7 @@
         <span></span>
       </button>
     </nav>
-    <section class="hero">
+    <section class="hero" id="home">
       <div class="hero-3d-center">
         <div id="three-cube-container"></div>
       </div>
@@ -62,9 +63,14 @@
         <div class="about-info">
           <div class="about-info-headline">Who Am I ?</div>
           <p class="scramble-text" id="about-info-text">
-            I am a <b>Full Stack Web Developer</b> and <b>AI/ML expert</b> with a strong foundation in robotics and bot development.
-            <br><br>
-            Currently pursuing <b>Mechanical Engineering</b> at <b class="uni-name">Jadavpur University</b>, I blend software proficiency with hands-on engineering skills to build innovative tech solutions that bridge the gap between hardware and software.
+            <span class="about-highlight">I am a <b>Full Stack Web Developer</b> and <b>AI/ML Expert</b></span>
+            <span class="about-sub">with a strong foundation in robotics and bot development.</span>
+            <br>
+            <br>
+            <span class="about-highlight">Currently pursuing <b>Mechanical Engineering</b> at <b class="uni-name">Jadavpur University</b>,</span>
+            <span class="about-sub">
+              I blend software proficiency with hands-on engineering skills to build innovative tech solutions that bridge the gap between hardware and software.
+            </span>
           </p>
         </div>
       </div>
@@ -553,14 +559,31 @@
             <!-- Add more as needed -->
           </div>
         </div>
-        <form class="contact-form rgb-shadow-3d" action="https://formspree.io/f/mwpoopnv" method="POST">
-          <label for="name">Your name:</label>
-          <input type="text" id="name" placeholder="Your Name" required/>
-          <label for="email">Your email:</label>
-          <input type="email" id="email" placeholder="Your Email" required/>
-          <label for="message">Your message:</label>
-          <textarea id="message" placeholder="Your Message" required></textarea>
+        <!-- <form  action="https://formspree.io/f/xnndpegz" method="POST">
+          <label for="name">Your name: <input type="text" id="name" placeholder="Your Name" required/></label>
+          
+          <label for="email">Your email: <input type="email" id="email" placeholder="Your Email" required/>
+          </label>
+          <label for="message">Your message: <textarea id="message" placeholder="Your Message" required></textarea></label>
+          
           <button type="submit" class="rgb-btn">Send</button>
+      </form>  -->
+      <!-- modify this form HTML and place wherever you want your form -->
+<form
+  action="https://formspree.io/f/mwpoopnv"
+  method="POST"
+  class="contact-form rgb-shadow-3d"
+>
+  <label for="name">Your name:</label>
+  <input type="text" id="name" name="name" placeholder="Your Name" required />
+
+  <label for="email">Your email-id:</label>
+  <input type="email" id="email" name="email" placeholder="Your Email" required />
+
+  <label for="message">Your message:</label>
+  <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
+  <button type="submit" class="rgb-btn">Send</button>
       </form>
       </div>
     </section>
@@ -568,6 +591,7 @@
   <footer>
     <div class="footer-quick-links">
       <span class="footer-links-title">Quick Links:</span>
+      <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
